@@ -1,686 +1,117 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HandyPro | Download</title>
-  <meta name="description" content="Download HandyPro, a desktop operations platform for handyman and home service businesses." />
-  <style>
-    :root {
-      --bg: #e7e1d6;
-      --bg-2: #f1ece3;
-      --panel: #f8f4ed;
-      --panel-strong: #f4efe7;
-      --line: #d7cdbf;
-      --line-soft: #e4dbcf;
-      --text: #1f2a37;
-      --muted: #6b7a90;
-      --brand: #0f4a43;
-      --brand-2: #1a5c54;
-      --brand-3: #356c63;
-      --accent: #dca96e;
-      --accent-soft: #ecd8bf;
-      --success: #1d7a5f;
-      --shadow: 0 18px 40px rgba(72, 56, 34, 0.10);
-      --radius: 22px;
-      --radius-sm: 16px;
-      --max: 1220px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(220,169,110,0.08), transparent 26%),
-        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      background: rgba(248,244,237,0.86);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(15,74,67,0.08);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 14px 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(15,74,67,0.12);
-      background: var(--brand);
-      box-shadow: 0 10px 28px rgba(15,74,67,0.16);
-      flex: 0 0 auto;
-    }
-
-    .brand-name {
-      font-weight: 800;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-sub {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-top: 2px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover { color: var(--brand); }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
-      border-radius: 14px;
-      border: 1px solid rgba(15,74,67,0.14);
-      font-weight: 700;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(72,56,34,0.05);
-    }
-
-    .button:hover { transform: translateY(-1px); }
-
-    .button-primary {
-      background: linear-gradient(180deg, var(--brand-2), var(--brand));
-      color: #fff;
-      box-shadow: 0 12px 24px rgba(15,74,67,0.18);
-    }
-
-    .button-secondary {
-      background: var(--panel);
-      color: var(--brand);
-    }
-
-    .hero {
-      padding: 34px 0 28px;
-    }
-
-    .hero-shell {
-      border: 1px solid rgba(15,74,67,0.10);
-      background: linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.18));
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 0;
-      min-height: 660px;
-    }
-
-    .hero-copy {
-      padding: 42px;
-      background: linear-gradient(180deg, rgba(248,244,237,0.84), rgba(244,239,231,0.90));
-      border-right: 1px solid rgba(15,74,67,0.08);
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(15,74,67,0.06);
-      border: 1px solid rgba(15,74,67,0.10);
-      color: var(--brand);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    h1, h2, h3 { margin: 0; }
-
-    h1 {
-      font-size: clamp(2.3rem, 4.6vw, 4.5rem);
-      line-height: 0.98;
-      letter-spacing: -0.05em;
-      margin-bottom: 16px;
-      max-width: 11ch;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.72;
-      max-width: 58ch;
-      margin-bottom: 24px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 26px;
-    }
-
-    .pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.54);
-      border: 1px solid rgba(15,74,67,0.10);
-    }
-
-    .highlights {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .highlight {
-      border: 1px solid rgba(15,74,67,0.08);
-      background: rgba(255,255,255,0.54);
-      border-radius: 18px;
-      padding: 16px;
-    }
-
-    .highlight strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 6px;
-    }
-
-    .highlight span {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .hero-visual {
-      background: linear-gradient(180deg, #f3ede3 0%, #ebe3d7 100%);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      justify-content: center;
-    }
-
-    .preview-card {
-      border: 1px solid rgba(15,74,67,0.10);
-      background: rgba(255,255,255,0.72);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .preview-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .preview-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .preview-caption {
-      padding: 14px 16px;
-      border-top: 1px solid rgba(15,74,67,0.08);
-      background: rgba(255,255,255,0.62);
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .section {
-      padding: 24px 0;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: end;
-      margin-bottom: 18px;
-    }
-
-    .section-header p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      max-width: 64ch;
-      line-height: 1.7;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .panel {
-      border: 1px solid rgba(15,74,67,0.10);
-      background: var(--panel);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .panel-inner {
-      padding: 22px;
-    }
-
-    .feature-icon {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: rgba(15,74,67,0.08);
-      border: 1px solid rgba(15,74,67,0.10);
-      margin-bottom: 16px;
-      color: var(--brand);
-      font-weight: 800;
-    }
-
-    .panel h3 { margin-bottom: 10px; }
-
-    .panel p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr 0.9fr;
-      gap: 18px;
-    }
-
-    .gallery .panel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .gallery-large img { min-height: 100%; }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .step-number {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      background: rgba(15,74,67,0.08);
-      border: 1px solid rgba(15,74,67,0.10);
-      color: var(--brand);
-      margin-bottom: 12px;
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .list {
-      display: grid;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .list-item {
-      display: flex;
-      align-items: start;
-      gap: 10px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .check {
-      color: var(--success);
-      font-weight: 900;
-      margin-top: 2px;
-    }
-
-    .warning {
-      color: #c7851f;
-      font-weight: 900;
-      margin-top: 2px;
-    }
-
-    .cta {
-      padding: 26px 0 74px;
-    }
-
-    .cta-box {
-      border: 1px solid rgba(15,74,67,0.12);
-      background: linear-gradient(180deg, rgba(15,74,67,0.95), rgba(15,74,67,0.88));
-      color: white;
-      border-radius: 28px;
-      box-shadow: 0 24px 48px rgba(15,74,67,0.16);
-      padding: 34px;
-      display: flex;
-      justify-content: space-between;
-      gap: 22px;
-      align-items: center;
-      flex-wrap: wrap;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .cta-box::after {
-      content: "";
-      position: absolute;
-      inset: auto -40px -90px auto;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(220,169,110,0.25), transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta-box p {
-      color: rgba(255,255,255,0.76);
-      margin: 10px 0 0;
-      max-width: 62ch;
-      line-height: 1.65;
-    }
-
-    .footer {
-      border-top: 1px solid rgba(15,74,67,0.08);
-      padding: 22px 0 40px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    code.inline {
-      background: rgba(15,74,67,0.05);
-      border: 1px solid rgba(15,74,67,0.10);
-      border-radius: 8px;
-      padding: 2px 8px;
-      color: var(--brand);
-      font-weight: 700;
-    }
-
-    @media (max-width: 1120px) {
-      .hero-grid,
-      .cards,
-      .gallery,
-      .two-col,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        border-right: none;
-        border-bottom: 1px solid rgba(15,74,67,0.08);
-      }
-
-      .preview-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav-links { display: none; }
-      .hero-copy, .hero-visual, .panel-inner, .cta-box { padding: 22px; }
-      .highlights, .preview-grid { grid-template-columns: 1fr; }
-      h1 { max-width: 100%; font-size: 2.5rem; }
-      .subtitle { font-size: 16px; }
-      .brand-mark { width: 44px; height: 44px; }
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HandyPro | Business Operations for Home Service Contractors</title>
+  <meta name="description" content="HandyPro is a Windows desktop operations platform for handyman and home service businesses. Manage customers, jobs, schedules, estimates, invoices, documents, and reporting from one clean workspace." />
+  <link rel="preconnect" href="https://api.github.com" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="#top" class="brand">
-        <div class="brand-mark">
-          <img src="HandyPro Logo (2160x2160).png" alt="HandyPro logo" />
-        </div>
-        <div>
-          <div class="brand-name">HandyPro</div>
-          <div class="brand-sub">Operations Suite</div>
-        </div>
-      </a>
-      <nav class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#preview">Preview</a>
-        <a href="#install">Install</a>
-        <a href="#support">Support</a>
-      </nav>
-    </div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="HandyPro home">
+      <img src="HandyPro%20Logo.png" alt="HandyPro logo" />
+      <span>HandyPro</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open navigation" data-nav-toggle>☰</button>
+    <nav class="site-nav" data-nav>
+      <a href="#features">Features</a>
+      <a href="#screenshots">Preview</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="#support">Support</a>
+    </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container hero-shell">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <div class="eyebrow">Field-ready desktop app</div>
-            <h1>Business control for jobs, scheduling, cash flow, and client documents.</h1>
-            <p class="subtitle">
-              HandyPro is a desktop operations platform built for handyman and home service businesses. Track customers, manage job workspaces, plan schedules, generate polished PDFs, and keep your operation organized with the same clean, practical workflow shown inside the app.
-            </p>
-            <div class="hero-actions">
-              <a class="button button-primary" href="downloads/HandyPro.Setup.1.0.8.exe" download>Download HandyPro</a>
-              <a class="button button-secondary" href="#preview">See product preview</a>
-            </div>
-            <div class="meta">
-              <div class="pill">Current version: <strong>v1.0.8</strong></div>
-              <div class="pill">Platform: <strong>Windows Desktop</strong></div>
-              <div class="pill">Installer: <strong>.exe</strong></div>
-            </div>
-
-            <div class="highlights">
-              <div class="highlight">
-                <strong>Job-first workflow</strong>
-                <span>Manage pipeline, costing, schedules, field reports, and documents from connected workspaces.</span>
-              </div>
-              <div class="highlight">
-                <strong>Professional scheduling</strong>
-                <span>Use a Gantt-driven scheduler with dependencies, milestones, exports, and planning controls.</span>
-              </div>
-              <div class="highlight">
-                <strong>Client-ready PDFs</strong>
-                <span>Create estimates, invoices, schedule exports, and cost sheets in a format that looks polished and organized.</span>
-              </div>
-              <div class="highlight">
-                <strong>Built for small business</strong>
-                <span>Simple enough to use daily, but structured enough to replace scattered notes, spreadsheets, and disconnected tools.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-visual">
-            <div class="preview-card">
-              <img src="Dashboard.png" alt="HandyPro dashboard preview" />
-              <div class="preview-caption">The dashboard gives an immediate view of jobs, customers, open invoices, profit summary, and operational notes.</div>
-            </div>
-            <div class="preview-grid">
-              <div class="preview-card">
-                <img src="Job Workspace.png" alt="HandyPro job workspace" />
-                <div class="preview-caption">Job workspaces connect pipeline, costing, gantt scheduling, and field reporting.</div>
-              </div>
-              <div class="preview-card">
-                <img src="Document Center.png" alt="HandyPro document center" />
-                <div class="preview-caption">Generate and manage invoices, estimates, and downloadable client documents.</div>
-              </div>
-            </div>
-          </div>
+  <main>
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow">Windows desktop app for small contractors</p>
+        <h1>Run jobs, customers, schedules, invoices, and documents from one practical workspace.</h1>
+        <p class="hero-text">HandyPro helps handyman and home service businesses keep daily operations organized without juggling spreadsheets, folders, paper notes, and disconnected tools.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="downloads.html">Download HandyPro</a>
+          <a class="btn btn-secondary" href="#screenshots">See the app</a>
+        </div>
+        <div class="release-pill" data-stable-release>
+          <span class="dot"></span>
+          <span>Checking latest release…</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="Dashboard.png" alt="HandyPro dashboard screenshot" />
+        <div class="hero-card-footer">
+          <strong>Local-first operations</strong>
+          <span>Dashboard, job workspace, documents, scheduling, and financial visibility.</span>
         </div>
       </div>
     </section>
 
-    <section class="section" id="features">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2>Designed around the same look and workflow as the app itself</h2>
-            <p>The website follows the same visual language as HandyPro: warm neutral panels, deep green navigation, clean cards, practical hierarchy, and a business-first presentation that matches the application experience.</p>
-          </div>
-        </div>
+    <section class="trust-strip section-shell" aria-label="HandyPro highlights">
+      <div><strong>Job-first</strong><span>CRM, pipeline, costing, and workspaces</span></div>
+      <div><strong>Client-ready</strong><span>Estimates, invoices, reports, and PDFs</span></div>
+      <div><strong>Desktop-first</strong><span>Built for Windows business workflows</span></div>
+      <div><strong>Simple</strong><span>Designed for solo and small-team operators</span></div>
+    </section>
 
-        <div class="cards">
-          <article class="panel"><div class="panel-inner"><div class="feature-icon">01</div><h3>Operations dashboard</h3><p>Get a clean top-level overview of total revenue, jobs, archived work, customer counts, financial trend data, and current workload notes.</p></div></article>
-          <article class="panel"><div class="panel-inner"><div class="feature-icon">02</div><h3>Customer and job workspaces</h3><p>Create jobs, connect them to customers, track pipeline status, and manage each project from a practical job workspace.</p></div></article>
-          <article class="panel"><div class="panel-inner"><div class="feature-icon">03</div><h3>Scheduler and planning tools</h3><p>Plan tasks with the Gantt Scheduler, configure work calendars, export schedules, and visualize project timing with a professional layout.</p></div></article>
-          <article class="panel"><div class="panel-inner"><div class="feature-icon">04</div><h3>Costing and pricing visibility</h3><p>Track budget, current cost, margin, and customer pricing so each job is connected directly to business performance.</p></div></article>
-          <article class="panel"><div class="panel-inner"><div class="feature-icon">05</div><h3>Estimate and invoice generation</h3><p>Create polished PDFs for estimates and invoices with company branding, structured sections, and client-ready formatting.</p></div></article>
-          <article class="panel"><div class="panel-inner"><div class="feature-icon">06</div><h3>Desktop-first delivery</h3><p>Install HandyPro on Windows and run a local-first desktop workflow without depending on a complicated web stack or subscription platform.</p></div></article>
-        </div>
+    <section class="section-shell split-section" id="features">
+      <div>
+        <p class="eyebrow">Everything connected</p>
+        <h2>Built around the real workflow of a small home service business.</h2>
+        <p>HandyPro keeps the important parts of your business close together: customers, jobs, schedules, cost tracking, documents, invoices, estimates, field notes, and reports.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><span>01</span><h3>Operations Dashboard</h3><p>View open jobs, customer totals, invoices, revenue, profit, and business notes from a clean starting point.</p></article>
+        <article class="feature-card"><span>02</span><h3>Customers & Jobs</h3><p>Create customers, attach jobs, track pipeline status, and open job-specific workspaces for daily project control.</p></article>
+        <article class="feature-card"><span>03</span><h3>Scheduling & Gantt</h3><p>Plan tasks, milestones, workdays, dependencies, and exports with a schedule tool made for project visibility.</p></article>
+        <article class="feature-card"><span>04</span><h3>Estimates & Invoices</h3><p>Create polished client documents with company information, cost details, totals, and downloadable PDFs.</p></article>
+        <article class="feature-card"><span>05</span><h3>Document Center</h3><p>Keep generated documents, job files, invoices, estimates, and related records organized by customer and job.</p></article>
+        <article class="feature-card"><span>06</span><h3>Reporting</h3><p>Track financial trends, job cost details, field reports, and business records in one practical system.</p></article>
       </div>
     </section>
 
-    <section class="section" id="preview">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2>Product preview</h2>
-            <p>These screenshots come directly from the application and show the actual interface style, scheduler layout, document output, and workspace structure your client will see after installation.</p>
-          </div>
-        </div>
-
-        <div class="gallery">
-          <article class="panel gallery-large">
-            <img src="Gantt Chart.png" alt="HandyPro gantt chart preview" />
-          </article>
-          <article class="panel">
-            <img src="Tasks Schedular.png" alt="HandyPro task scheduler preview" />
-          </article>
-          <article class="panel">
-            <img src="Example Estimate PDF.png" alt="HandyPro estimate PDF preview" />
-          </article>
-        </div>
+    <section class="section-shell screenshots" id="screenshots">
+      <div class="section-heading">
+        <p class="eyebrow">Product preview</p>
+        <h2>See the HandyPro workspace.</h2>
+        <p>These screenshots use your existing repository images so the website matches the actual application look and feel.</p>
+      </div>
+      <div class="screenshot-grid">
+        <figure><img src="Dashboard.png" alt="Dashboard screenshot"><figcaption>Dashboard</figcaption></figure>
+        <figure><img src="Job%20Workspace.png" alt="Job workspace screenshot"><figcaption>Job Workspace</figcaption></figure>
+        <figure><img src="Gantt%20Chart.png" alt="Gantt chart screenshot"><figcaption>Gantt Scheduler</figcaption></figure>
+        <figure><img src="Document%20Center.png" alt="Document center screenshot"><figcaption>Document Center</figcaption></figure>
+        <figure><img src="Tasks%20Schedular.png" alt="Tasks scheduler screenshot"><figcaption>Tasks Scheduler</figcaption></figure>
+        <figure><img src="Example%20Estimate%20PDF.png" alt="Estimate PDF screenshot"><figcaption>Estimate PDF</figcaption></figure>
       </div>
     </section>
 
-    <section class="section" id="install">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <h2>Install HandyPro in a few minutes</h2>
-            <p>Use the versioned installer below and follow the setup steps. This page is built for clean client delivery through GitHub Pages.</p>
-          </div>
-        </div>
-
-        <div class="steps">
-          <article class="panel"><div class="panel-inner"><div class="step-number">1</div><h3>Download the installer</h3><p>Click the download button and save the latest HandyPro installer to your computer.</p></div></article>
-          <article class="panel"><div class="panel-inner"><div class="step-number">2</div><h3>Run the setup file</h3><p>Open <code class="inline">HandyPro.Setup.1.0.8.exe</code> and follow the installation prompts.</p></div></article>
-          <article class="panel"><div class="panel-inner"><div class="step-number">3</div><h3>Finish installation</h3><p>Allow the installer to create a desktop shortcut and complete the setup process.</p></div></article>
-          <article class="panel"><div class="panel-inner"><div class="step-number">4</div><h3>Launch HandyPro</h3><p>Open the app from your desktop and start managing jobs, schedules, customers, documents, and reporting.</p></div></article>
-        </div>
+    <section class="section-shell download-cta">
+      <div>
+        <p class="eyebrow">Install the latest release</p>
+        <h2>Get HandyPro for Windows.</h2>
+        <p>The downloads page pulls release data directly from your HandyPro release repository, so the installer button can stay current as you publish new versions.</p>
       </div>
+      <a class="btn btn-primary" href="downloads.html">Go to Downloads</a>
     </section>
 
-    <section class="section">
-      <div class="container two-col">
-        <article class="panel">
-          <div class="panel-inner">
-            <h2>What’s included</h2>
-            <div class="list">
-              <div class="list-item"><span class="check">✓</span><span>Windows desktop installer</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Dashboard, CRM, jobs, scheduler, invoices, settings, and documents</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Professional PDF generation for invoices, estimates, schedules, and cost sheets</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Local-first data storage and operational workflow</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Automatic update support in supported versions</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="panel" id="support">
-          <div class="panel-inner">
-            <h2>Important install note</h2>
-            <div class="list">
-              <div class="list-item"><span class="warning">!</span><span>If Windows shows a security prompt for a new app, click <strong>More info</strong> and then <strong>Run anyway</strong>.</span></div>
-              <div class="list-item"><span class="check">✓</span><span>This installer is intended for direct client delivery and internal business use.</span></div>
-              <div class="list-item"><span class="check">✓</span><span>Future versions can be delivered from the same page with updated versioned installers and release notes.</span></div>
-            </div>
-          </div>
-        </article>
+    <section class="section-shell support" id="support">
+      <div class="section-heading">
+        <p class="eyebrow">Support</p>
+        <h2>Simple install guidance.</h2>
       </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <div class="cta-box">
-          <div>
-            <h2>Ready to install HandyPro?</h2>
-            <p>Download the latest production build and start using the same streamlined dashboard, scheduler, job workspace, and document tools shown throughout this page.</p>
-          </div>
-          <a class="button button-primary" href="downloads/HandyPro.Setup.1.0.8.exe" download>Download v1.0.8</a>
-        </div>
+      <div class="support-grid">
+        <article><h3>Windows security prompt</h3><p>If Windows shows a warning for a new installer, select <strong>More info</strong>, then <strong>Run anyway</strong> if you trust the source.</p></article>
+        <article><h3>Updates</h3><p>GitHub release builds can be used for direct installers and auto-update workflows. Microsoft Store builds should update through the Store.</p></article>
+        <article><h3>Best practice</h3><p>Keep the Store version and GitHub release version aligned so customers know which build is current.</p></article>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div>© 2026 HandyPro. All rights reserved.</div>
-      <div>Built for small business operations and client delivery.</div>
-    </div>
+  <footer class="site-footer">
+    <div><strong>HandyPro</strong><span>Business control for home service operations.</span></div>
+    <nav><a href="downloads.html">Downloads</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
   </footer>
+  <script src="js/site.js"></script>
 </body>
 </html>
